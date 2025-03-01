@@ -30,7 +30,7 @@ public class Calculoimpuesto {
             double  valorImpuesto;
             double valorAvaluo = calcularAvaluo(vehiculo);
             
-            if (vehiculo.getTipo().equals("Privado"))
+            if (vehiculo.getTipo().equals("Publico"))
             {
                valorImpuesto = valorAvaluo * 0.007;  // 0,7 % 
                return valorImpuesto;

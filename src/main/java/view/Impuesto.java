@@ -37,16 +37,17 @@ public class Impuesto extends javax.swing.JFrame {
         Cilindraje = new javax.swing.JTextField();
         Valor = new javax.swing.JTextField();
         TipoVehiculo = new javax.swing.JComboBox<>();
-        CalculoImpuesto = new javax.swing.JButton();
+        btnCalcular = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Title = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         ValorApagar = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        Avaluo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculo Impuesto");
-        setPreferredSize(new java.awt.Dimension(380, 450));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 300));
@@ -79,12 +80,17 @@ public class Impuesto extends javax.swing.JFrame {
             }
         });
 
-        TipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Privado", "Particular" }));
-
-        CalculoImpuesto.setText("CALCULAR");
-        CalculoImpuesto.addActionListener(new java.awt.event.ActionListener() {
+        TipoVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Publico", "Particular" }));
+        TipoVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CalculoImpuestoActionPerformed(evt);
+                TipoVehiculoActionPerformed(evt);
+            }
+        });
+
+        btnCalcular.setText("CALCULAR");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
             }
         });
 
@@ -115,7 +121,7 @@ public class Impuesto extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(TipoVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                                .addComponent(CalculoImpuesto)))))
+                                .addComponent(btnCalcular)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,14 +150,14 @@ public class Impuesto extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CalculoImpuesto)
+                .addComponent(btnCalcular)
                 .addContainerGap())
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setPreferredSize(new java.awt.Dimension(300, 64));
 
-        Title.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        Title.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Title.setText("Regritra los datos del vehiculo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -173,11 +179,22 @@ public class Impuesto extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("VALOR A PAGAR");
 
+        ValorApagar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        ValorApagar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ValorApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ValorApagarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("AVALUO VEHICULO");
+
+        Avaluo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AvaluoActionPerformed(evt);
             }
         });
 
@@ -188,21 +205,31 @@ public class Impuesto extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
+                        .addGap(85, 85, 85)
                         .addComponent(jLabel7))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(ValorApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(98, 98, 98)
+                        .addComponent(ValorApagar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(26, 26, 26)
+                .addComponent(Avaluo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(Avaluo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(ValorApagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -226,7 +253,7 @@ public class Impuesto extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,14 +271,25 @@ public class Impuesto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MarcaActionPerformed
 
-    private void CalculoImpuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalculoImpuestoActionPerformed
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CalculoImpuestoActionPerformed
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void ValorApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ValorApagarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ValorApagarActionPerformed
 
+    private void TipoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipoVehiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TipoVehiculoActionPerformed
+
+    private void AvaluoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvaluoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AvaluoActionPerformed
+    
+    public String getSeleccionComboBox() {
+        return (String) TipoVehiculo.getSelectedItem();
+    }
     /**
      * @param args the command line arguments
      */
@@ -259,19 +297,21 @@ public class Impuesto extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton CalculoImpuesto;
+    public javax.swing.JTextField Avaluo;
     public javax.swing.JTextField Cilindraje;
     public javax.swing.JTextField Marca;
     public javax.swing.JTextField Modelo;
-    private javax.swing.JComboBox<String> TipoVehiculo;
+    public javax.swing.JComboBox<String> TipoVehiculo;
     private javax.swing.JLabel Title;
     public javax.swing.JTextField Valor;
     public javax.swing.JTextField ValorApagar;
+    public javax.swing.JButton btnCalcular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

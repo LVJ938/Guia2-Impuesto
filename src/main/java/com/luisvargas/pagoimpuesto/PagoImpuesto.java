@@ -4,32 +4,25 @@ package com.luisvargas.pagoimpuesto;
  * @author Luis Vargas
  */
 import model.Calculoimpuesto;
-import model.Vehiculo;
-import java.text.DecimalFormat;
 import view.Impuesto;
+import controller.Controlador;
+import model.Vehiculo;
+
+
+
 public class PagoImpuesto {
 
     
     public static void main(String[] args) {
         
-        Impuesto pantalla = new Impuesto();
-        pantalla.setVisible(true);
-        pantalla.setLocation(null);
-        /*
-        Vehiculo carro1 = new Vehiculo("Mazda","Publico",2020,1600,60000000);
-        Calculoimpuesto impuesto = new Calculoimpuesto();
+        Vehiculo carro = new Vehiculo(" ", " ", 0,0,0.0);
+        Calculoimpuesto calcular = new Calculoimpuesto();
+        Impuesto verImpuesto = new Impuesto();
         
-        double avaluo = impuesto.calcularAvaluo(carro1);
-        DecimalFormat formato = new DecimalFormat("$#,##0.00");
-        String avaluoFormating = formato.format(avaluo);
-        System.out.println("El avaluo de su carro es: " + avaluoFormating);
+        Controlador control = new Controlador(verImpuesto, calcular, carro);
         
-        double pagarImpuesto = impuesto.calcularImpuesto(carro1);
-        DecimalFormat formato1 = new DecimalFormat("$#,##0.00");
-        String impuestoFormating = formato1.format(pagarImpuesto);
-        System.out.println("-----------------------------------------");
-        System.out.println("El avaluo de su carro es: " + impuestoFormating);
-        */
+        control.inicio();
+        
     }
 }
 
