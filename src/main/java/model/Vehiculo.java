@@ -22,13 +22,7 @@ public class Vehiculo {
         this.cilindraje = cilindrajeVehiculo;
         this.valor = valorComercial;
         }
-        /*
-        public int calcularAntiguedad()      
-        {
-            int actualYear = 2025;
-            return actualYear - this.modelo;
-         }
-        */
+    
         public String getMarca() {
             return marca;
         }
