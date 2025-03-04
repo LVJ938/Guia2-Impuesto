@@ -20,7 +20,7 @@ En Bogotá, el avalúo comercial de un vehículo se calcula utilizando tablas de
 
 Por último este valor se multiplicara por las tarifas determinadas en la norma vigente de la siguiente manera:
 <table >
-<caption>Título de la tabla</caption>
+<caption>Tarifas vigentes 2025 </caption>
 <tr>
 <th>Tipo de Vehículo</th>
 <th>Rango de avalúos</th>
